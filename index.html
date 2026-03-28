@@ -202,7 +202,7 @@ html, body {
 /* 人物大小保留，不動 */
 .char {
     position: absolute;
-    bottom: 20%;
+    bottom: 50%;
     width: 45%;
     max-height: 95%;
     object-fit: contain;
@@ -351,7 +351,8 @@ html, body {
         width: 55%;           /* 原本45 → 放大 */
         max-height: 85%;      /* 原本95 → 避免太高被切 */
     }
-
+.char {
+    bottom: 50%; }
     .char.left {
         left: -5%;            /* 往外一點，讓臉更明顯 */
     }
@@ -385,8 +386,7 @@ html, body {
         margin: 6px auto;
     }
 }
-.char {
-    bottom: -40%;
+
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.playBGM = function (src) {
 
     // ⭐ 無論如何先停掉舊的
