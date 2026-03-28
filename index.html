@@ -236,16 +236,17 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 
 .next-btn-wrap {
     position: absolute;
-    right: 7%;
-    bottom: 8%;
-    z-index: 7;
+    right: 12%;
+    bottom: 15%;
+    width: 20%;
+    z-index: 8;
 }
 
 .choice-wrap {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 0%;
+    bottom: 8%;
     width: 82%;
     z-index: 8;
     text-align: center;
@@ -340,74 +341,67 @@ html, body {
 /* 手機版 */
 @media (max-width: 768px) {
 
+    /* ⭐ 標題 */
     .scene-title {
-        top: 5%;
-        font-size: 26px;
+        top: 4%;
+        font-size: 24px;
         letter-spacing: 2px;
     }
 
+    /* ⭐ 人物（重點修正） */
     .char {
-        width: 42%;
-        max-height: 72%;
+        width: 65%;
+        max-height: 85%;
     }
 
     .char.left {
-        left: -8%;
+        left: -20%;
     }
 
     .char.right {
-        right: -8%;
+        right: -20%;
     }
 
+    /* ⭐ 對話框（往上） */
     .dialogue-box {
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 82%;
+        top: 26%;
+        width: 88%;
         min-height: 70px;
-        padding: 8px 12px;
-        border-radius: 12px;
+        padding: 10px 14px;
     }
 
+    /* ⭐ 名字 */
     .nameplate {
-        top: -12px;
-        right: 12px;
-        padding: 3px 10px;
+        top: -10px;
+        right: 10px;
         font-size: 16px;
-        letter-spacing: 1px;
     }
 
+    /* ⭐ 文字 */
     .dialogue-text {
         font-size: 18px;
         line-height: 1.6;
     }
 
+    /* ⭐ 選項區（關鍵） */
     .choice-wrap {
-        width: 90%;
-        bottom: 2%;
+        bottom: 10%;
+        width: 95%;
     }
 
     .choice-title {
-        margin-bottom: 12px;
         font-size: 18px;
+        margin-bottom: 10px;
     }
 
+    /* ⭐ 按鈕 */
     .choice-btn {
-        width: 88%;
-        margin: 4px auto;
-        padding: 10px 12px;
+        width: 92%;
         font-size: 18px;
-        border-radius: 8px;
+        padding: 12px 14px;
+        margin: 6px auto;
     }
 
-    .next-btn-wrap {
-        right: 4%;
-        bottom: 4%;
-    }
-
-    .petal {
-        font-size: 16px;
-    }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.playBGM = function (src) {
 
     // ⭐ 無論如何先停掉舊的
