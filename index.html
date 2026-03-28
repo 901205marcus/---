@@ -202,7 +202,7 @@ html, body {
 /* 人物大小保留，不動 */
 .char {
     position: absolute;
-    bottom: 30%;
+    bottom: 0;
     width: 45%;
     max-height: 95%;
     object-fit: contain;
@@ -359,8 +359,10 @@ html, body {
     .char.right {
         right: -5%;
     }
-.char {
-    bottom: 10%; }
+  .char {
+    bottom: 20%;
+}
+
     /* ===== 下一句按鈕 ===== */
     .next-btn-wrap {
         right: 6%;
@@ -386,8 +388,7 @@ html, body {
         margin: 6px auto;
     }
 }
-
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.playBGM = function (src) {
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.playBGM = function (src) {
 
     // ⭐ 無論如何先停掉舊的
     if (window.bgm) {
@@ -681,7 +682,7 @@ setup.stopBGM = function () {
         border:1px solid rgba(255,255,255,0.22);
         border-radius:14px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         text-shadow:0 0 6px black;
         box-shadow:0 0 20px rgba(0,0,0,0.25);
@@ -704,7 +705,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.35);
             border-radius:10px;
             color:white;
-            font-size:26px;
+            font-size:30px;
             cursor:pointer;
             text-shadow:0 0 6px black;
             box-shadow:0 0 10px rgba(0,0,0,0.18);
@@ -1071,7 +1072,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -1102,7 +1103,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:35px;
+            font-size:30px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -1464,7 +1465,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -1565,7 +1566,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -1812,7 +1813,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -1836,7 +1837,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:40px;
+            font-size:25px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -2232,7 +2233,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -2267,7 +2268,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:35px;
+            font-size:25px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -2351,7 +2352,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -2375,7 +2376,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:35px;
+            font-size:25px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -2779,7 +2780,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -2807,7 +2808,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:35px;
+            font-size:25px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -2859,7 +2860,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:40px;
+        font-size:30px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
