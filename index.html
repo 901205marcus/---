@@ -314,8 +314,80 @@ html, body {
     text-shadow: 0 0 8px black, 0 0 18px black;
     z-index: 5;
 }
+/* 手機版：只調字體與排版，不動人物大小 */
+@media (max-width: 768px) {
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.playBGM = function (src) {
+    /* ===== 標題 ===== */
+    .scene-title {
+        top: 6%;
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    /* ===== 對話框 ===== */
+    .dialogue-box {
+        top: 32%;
+        width: 88%;
+        min-height: 70px;
+        padding: 10px 14px;
+        border-radius: 12px;
+    }
+
+    .dialogue-text {
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+    /* ===== 名字 ===== */
+    .nameplate {
+        font-size: 14px;
+        padding: 3px 8px;
+        top: -10px;
+        right: 10px;
+    }
+
+    /* ===== 人物（⭐重點）===== */
+    .char {
+        width: 55%;           /* 原本45 → 放大 */
+        max-height: 85%;      /* 原本95 → 避免太高被切 */
+    }
+
+    .char.left {
+        left: -5%;            /* 往外一點，讓臉更明顯 */
+    }
+
+    .char.right {
+        right: -5%;
+    }
+
+    /* ===== 下一句按鈕 ===== */
+    .next-btn-wrap {
+        right: 6%;
+        bottom: 20%;
+        font-size: 16px;
+    }
+
+    /* ===== 選項區 ===== */
+    .choice-wrap {
+        bottom: 6%;
+        width: 92%;
+    }
+
+    .choice-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .choice-btn {
+        width: 90%;
+        font-size: 16px;
+        padding: 10px;
+        margin: 6px auto;
+    }
+}
+.char {
+    bottom: -5%;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.playBGM = function (src) {
 
     // ⭐ 無論如何先停掉舊的
     if (window.bgm) {
