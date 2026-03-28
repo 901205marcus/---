@@ -145,11 +145,33 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
     }
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 
+#ui-bar {
+    display: none;
+}
+
+#story {
+    margin-left: 0 !important;
+}
+
+#passages {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 100vh;
+    padding: 0 !important;
+    margin: 0 !important;
+}
 
 .scene-bg {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     color: white;
@@ -177,6 +199,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
     pointer-events: none;
 }
 
+/* 人物大小保留，不動 */
 .char {
     position: absolute;
     bottom: 0;
@@ -188,6 +211,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
     filter: brightness(0.68);
     transform: scale(0.96);
 }
+
 .char.left {
     left: 0%;
 }
@@ -216,10 +240,10 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 
 .dialogue-box {
     position: absolute;
-    top: 35%;                
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;             
+    width: 80%;
     min-height: 110px;
     padding: 5px 10px;
     background: rgba(10,10,10,0.55);
@@ -228,8 +252,9 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     z-index: 5;
 }
+
 .dialogue-text {
-    font-size: 24px;
+    font-size: 40px;
     line-height: 1.8;
     text-shadow: 0 0 6px black;
 }
@@ -237,8 +262,9 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 .next-btn-wrap {
     position: absolute;
     right: 12%;
-    bottom: 15%;
-    width: 20%;
+   font-size: 40px;
+    bottom: 18%;
+    width: 30%;
     z-index: 8;
 }
 
@@ -260,14 +286,14 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 
 .choice-btn {
     display: block;
-    width: 80%;                 /* ⭐ 控制寬度 */
-    margin: 0px auto;           /* ⭐ 控制間距（越小越靠近） */
-    padding: 5px 10px;         /* ⭐ 控制厚度 */
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px 10px;
     background: rgba(0,0,0,0.55);
     color: white;
     border: 1px solid rgba(255,255,255,0.25);
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 40px;
     cursor: pointer;
     text-shadow: 0 0 6px black;
     transition: all 0.25s ease;
@@ -277,131 +303,78 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
     background: rgba(255,255,255,0.25);
     transform: scale(1.03);
 }
+
 .scene-title {
     position: absolute;
     top: 7%;
     width: 100%;
     text-align: center;
-    font-size: 38px;
+    font-size: 40px;
     letter-spacing: 4px;
     text-shadow: 0 0 8px black, 0 0 18px black;
     z-index: 5;
 }
-#ui-bar {
-    display: none;
-}
-#story {
-    margin-left: 0 !important;
-}
-@media (max-width: 768px) {
-    .char {
-        width: 42%;
-        max-height: 72%;
-    }
 
-    .dialogue-box {
-        width: 82%;
-        top: 30%;
-        min-height: 70px;
-        padding: 8px 12px;
-    }
-
-    .dialogue-text {
-        font-size: 18px;
-        line-height: 1.6;
-    }
-
-    .choice-btn {
-        width: 88%;
-        font-size: 18px;
-        padding: 10px 12px;
-    }
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-#passages {
-    max-width: 100% !important;
-    width: 100% !important;
-    height: 100vh;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.scene-bg {
-    width: 100vw;
-    height: 100vh;
-}
-
-/* 手機版 */
+/* 手機版：只調字體與排版，不動人物大小 */
 @media (max-width: 768px) {
 
-    /* ⭐ 標題 */
     .scene-title {
         top: 4%;
         font-size: 24px;
         letter-spacing: 2px;
+        line-height: 1.3;
     }
 
-    /* ⭐ 人物（重點修正） */
-    .char {
-        width: 65%;
-        max-height: 85%;
-    }
-
-    .char.left {
-        left: -20%;
-    }
-
-    .char.right {
-        right: -20%;
-    }
-
-    /* ⭐ 對話框（往上） */
     .dialogue-box {
-        top: 26%;
-        width: 88%;
-        min-height: 70px;
-        padding: 10px 14px;
+        top: 30%;
+        width: 86%;
+        min-height: 64px;
+        padding: 8px 12px;
+        border-radius: 12px;
     }
 
-    /* ⭐ 名字 */
     .nameplate {
         top: -10px;
         right: 10px;
+        padding: 3px 10px;
         font-size: 16px;
+        letter-spacing: 1px;
     }
 
-    /* ⭐ 文字 */
     .dialogue-text {
         font-size: 18px;
-        line-height: 1.6;
+        line-height: 1.55;
     }
 
-    /* ⭐ 選項區（關鍵） */
+    .next-btn-wrap {
+        right: 6%;
+        bottom: 18%;
+        width: auto;
+    }
+
     .choice-wrap {
-        bottom: 10%;
-        width: 95%;
+        bottom: 5%;
+        width: 90%;
     }
 
     .choice-title {
-        font-size: 18px;
         margin-bottom: 10px;
-    }
-
-    /* ⭐ 按鈕 */
-    .choice-btn {
-        width: 92%;
         font-size: 18px;
-        padding: 12px 14px;
-        margin: 6px auto;
+        line-height: 1.4;
     }
 
+    .choice-btn {
+        width: 88%;
+        margin: 6px auto;
+        padding: 10px 12px;
+        font-size: 18px;
+        line-height: 1.4;
+        border-radius: 8px;
+    }
+
+    .petal {
+        font-size: 16px;
+    }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.playBGM = function (src) {
 
     // ⭐ 無論如何先停掉舊的
@@ -459,7 +432,7 @@ setup.stopBGM = function () {
         top:25%;
         width:100%;
         text-align:center;
-        font-size:48px;
+        font-size:50px;
         color:white;
         font-weight:bold;
         text-shadow:0 0 10px black, 0 0 20px black;
@@ -482,7 +455,7 @@ setup.stopBGM = function () {
                 border:1px solid rgba(255,255,255,0.35);
                 border-radius:10px;
                 color:white;
-                font-size:28px;
+                font-size:35px;
                 cursor:pointer;
                 text-shadow:0 0 6px black;
             &quot;&gt;
@@ -497,7 +470,7 @@ setup.stopBGM = function () {
                 border:1px solid rgba(255,255,255,0.35);
                 border-radius:10px;
                 color:white;
-                font-size:28px;
+                font-size:35px;
                 cursor:pointer;
                 text-shadow:0 0 6px black;
             &quot;&gt;
@@ -696,13 +669,13 @@ setup.stopBGM = function () {
         border:1px solid rgba(255,255,255,0.22);
         border-radius:14px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         text-shadow:0 0 6px black;
         box-shadow:0 0 20px rgba(0,0,0,0.25);
     &quot;&gt;
         雍正注意到甄嬛神似已故純元皇后，
-        因此她才能通過選秀，得以入宮。&lt;br&gt;
+        因此她才能通過選秀，得以入宮。
         宮廷氣息安靜微妙。
     &lt;/div&gt;
 
@@ -900,8 +873,7 @@ setup.stopBGM = function () {
     &lt;/div&gt;
 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="scene3_A" tags="" position="200,350" size="100,100">
-
-&lt;div class=&quot;scene-bg&quot;&gt;
+    &lt;div class=&quot;scene-bg&quot;&gt;
 
     &lt;img class=&quot;bg&quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3728.jpeg&quot;&gt;
 
@@ -911,15 +883,16 @@ setup.stopBGM = function () {
 
     &lt;div class=&quot;dialogue-box&quot; style=&quot;top:38%; bottom:auto;&quot;&gt;
         &lt;div class=&quot;dialogue-text&quot; style=&quot;text-align:center;&quot;&gt;
-            雍正最終決定親自召見甄嬛。&lt;br&gt;
+             雍正最終決定親自召見甄嬛。&lt;br&gt;
             她初步得到了皇上的注意與寵愛，命運的齒輪也自此開始轉動。
         &lt;/div&gt;
-         &lt;div class=&quot;next-btn-wrap&quot;&gt;
-        &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene3_5.5&#39;)&quot;&gt;下一幕&lt;/button&gt;
-    &lt;/div&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="scene3_B" tags="" position="250,350" size="100,100">
-&lt;div class=&quot;scene-bg&quot;&gt;
+&lt;/div&gt;
+
+ &lt;div class=&quot;next-btn-wrap&quot;&gt;
+        &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene3_5.5&#39;)&quot;&gt;下一幕&lt;/button&gt;
+    &lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="scene3_B" tags="" position="250,350" size="100,100">
+    &lt;div class=&quot;scene-bg&quot;&gt;
 
     &lt;img class=&quot;bg&quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3728.jpeg&quot;&gt;
 
@@ -929,14 +902,16 @@ setup.stopBGM = function () {
 
     &lt;div class=&quot;dialogue-box&quot; style=&quot;top:38%; bottom:auto;&quot;&gt;
         &lt;div class=&quot;dialogue-text&quot; style=&quot;text-align:center;&quot;&gt;
-            雍正選擇暫時觀察甄嬛。&lt;br&gt;
+             雍正選擇暫時觀察甄嬛。&lt;br&gt;
             她並未立刻得到特別關注，只能在深宮中小心行走，靜待時機。
         &lt;/div&gt;
-         &lt;div class=&quot;next-btn-wrap&quot;&gt;
+
+&lt;/div&gt;
+
+ &lt;div class=&quot;next-btn-wrap&quot;&gt;
         &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene3_5.5&#39;)&quot;&gt;下一幕&lt;/button&gt;
     &lt;/div&gt;
-
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="scene3_6" tags="" position="75,475" size="100,100">
+</tw-passagedata><tw-passagedata pid="14" name="scene3_6" tags="" position="75,475" size="100,100">
 &lt;div class=&quot;scene-bg&quot;&gt;
 
     &lt;img class=&quot;bg&quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3728.jpeg&quot;&gt;
@@ -986,12 +961,10 @@ setup.stopBGM = function () {
             她逐漸獲得寵愛與賞賜，在後宮中的地位悄然提升。
         &lt;/div&gt;
 
-    &lt;/div&gt;
 
+    &lt;/div&gt;
     &lt;div class=&quot;next-btn-wrap&quot;&gt;
         &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene3_7&#39;)&quot;&gt;下一幕&lt;/button&gt;
-    &lt;/div&gt;
-
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="scene3_B2" tags="" position="350,475" size="100,100">
 
 &lt;div class=&quot;scene-bg&quot;&gt;
@@ -1011,10 +984,10 @@ setup.stopBGM = function () {
 
     &lt;/div&gt;
 
-    &lt;div class=&quot;next-btn-wrap&quot;&gt;
-        &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene3_7&#39;)&quot;&gt;下一幕&lt;/button&gt;
+   
     &lt;/div&gt;
-
+ &lt;div class=&quot;next-btn-wrap&quot;&gt;
+        &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene3_7&#39;)&quot;&gt;下一幕&lt;/button&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="scene3_7" tags="" position="500,475" size="100,100">
 
 &lt;div class=&quot;scene-bg&quot;&gt;
@@ -1086,7 +1059,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -1117,7 +1090,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:26px;
+            font-size:35px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -1208,7 +1181,7 @@ setup.stopBGM = function () {
         &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene4_4&#39;)&quot;&gt;下一句&lt;/button&gt;
     &lt;/div&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="scene3_5.5" tags="" position="375,350" size="100,100">
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="scene3_5.5" tags="" position="525,350" size="100,100">
 
 &lt;div class=&quot;scene-bg&quot;&gt;
 
@@ -1231,12 +1204,14 @@ setup.stopBGM = function () {
 
         &lt;div class=&quot;dialogue-text&quot;&gt;
             （微微嘆氣）「宮中太監都說她舉止端莊，但這女子心性如何，朕暫時還不能斷定。」
-        &lt;/div&gt;
+        
+
+&lt;/div&gt;
+
+&lt;/div&gt;
         &lt;div class=&quot;next-btn-wrap&quot;&gt;
         &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene3_6&#39;)&quot;&gt;進入抉擇&lt;/button&gt;
-    &lt;/div&gt;
-
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="scene4_4" tags="" position="600,600" size="100,100">
+    &lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="scene4_4" tags="" position="600,600" size="100,100">
 
 &lt;div class=&quot;scene-bg&quot;&gt;
 
@@ -1406,14 +1381,16 @@ setup.stopBGM = function () {
                     然而自此之後，他與甄嬛之間仍漸行漸遠。
         &lt;/div&gt;
        
-         &lt;div class=&quot;next-btn-wrap&quot;&gt;
-        &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene4_10&#39;)&quot;&gt;下一幕&lt;/button&gt;
-    &lt;/div&gt;
+       
  &lt;div class=&quot;characters&quot;&gt;
         &lt;img class=&quot;char left &quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3736.png&quot;&gt;
         &lt;img class=&quot;char right&quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3737.png&quot;&gt;
     &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="scene4_10" tags="" position="325,850" size="100,100">
+&lt;/div&gt;
+
+  &lt;div class=&quot;next-btn-wrap&quot;&gt;
+        &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene4_10&#39;)&quot;&gt;下一幕&lt;/button&gt;
+    &lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="scene4_10" tags="" position="325,850" size="100,100">
 
 &lt;div class=&quot;scene-bg&quot;&gt;
 
@@ -1475,7 +1452,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -1576,7 +1553,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -1623,14 +1600,16 @@ setup.stopBGM = function () {
                     「退下。」&lt;br&gt;
                     自此之後，他對甄嬛愈加冷淡，兩人關係也逐漸疏遠。
         &lt;/div&gt;
-            &lt;div class=&quot;next-btn-wrap&quot;&gt;
-        &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene4_10&#39;)&quot;&gt;下一幕&lt;/button&gt;
-    &lt;/div&gt;
+           
  &lt;div class=&quot;characters&quot;&gt;
         &lt;img class=&quot;char left &quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3736.png&quot;&gt;
         &lt;img class=&quot;char right&quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3737.png&quot;&gt;
     &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="scene5_1" tags="" position="225,1000" size="100,100">
+&lt;/div&gt;
+
+ &lt;div class=&quot;next-btn-wrap&quot;&gt;
+        &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene4_10&#39;)&quot;&gt;下一幕&lt;/button&gt;
+    &lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="scene5_1" tags="" position="225,1000" size="100,100">
 
 &lt;div class=&quot;scene-bg&quot;&gt;
 
@@ -1821,7 +1800,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -1845,7 +1824,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:26px;
+            font-size:40px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -1991,13 +1970,12 @@ setup.stopBGM = function () {
     &lt;/div&gt;
 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="46" name="scene5_10" tags="" position="350,1250" size="100,100">
+&lt;div class=&quot;scene-bg&quot;&gt;
 
-    &lt;!-- 背景 --&gt;
     &lt;img class=&quot;bg&quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3745.jpeg&quot;&gt;
 
     &lt;div class=&quot;scene-overlay&quot; style=&quot;background: rgba(0,0,0,0.6);&quot;&gt;&lt;/div&gt;
 
- 
 
     &lt;!-- 人物 --&gt;
     &lt;div class=&quot;characters&quot;&gt;
@@ -2108,14 +2086,16 @@ setup.stopBGM = function () {
 
     &lt;/div&gt;
 
-    &lt;div class=&quot;next-btn-wrap&quot;&gt;
+    
+&lt;/div&gt;
+
+&lt;div class=&quot;next-btn-wrap&quot;&gt;
         &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene5_13&#39;)&quot;&gt;繼續&lt;/button&gt;
     &lt;/div&gt;
   &lt;div class=&quot;characters&quot;&gt;
         &lt;img class=&quot;char left  active&quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3738.png&quot;&gt;
         &lt;img class=&quot;char right active&quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3736.png&quot;&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="scene_guojun2_B" tags="" position="325,1375" size="100,100">
+    &lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="scene_guojun2_B" tags="" position="325,1375" size="100,100">
 
 &lt;div class=&quot;scene-bg&quot;&gt;
 
@@ -2135,11 +2115,9 @@ setup.stopBGM = function () {
 &lt;div class=&quot;characters&quot;&gt;
         &lt;img class=&quot;char left &quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3738.png&quot;&gt;
         &lt;img class=&quot;char right &quot; src=&quot;https://raw.githubusercontent.com/901205marcus/Hsvbsh/main/IMG_3736.png&quot;&gt;
-    &lt;/div&gt;
-        &lt;/div&gt;
-
-    &lt;/div&gt;
-
+              &lt;/div&gt;
+           &lt;/div&gt;
+       &lt;/div&gt;
     &lt;div class=&quot;next-btn-wrap&quot;&gt;
         &lt;button class=&quot;choice-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;scene5_13&#39;)&quot;&gt;繼續&lt;/button&gt;
     
@@ -2244,7 +2222,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -2279,7 +2257,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:26px;
+            font-size:35px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -2363,7 +2341,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -2387,7 +2365,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:26px;
+            font-size:35px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -2713,7 +2691,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:26px;
+            font-size:40px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -2791,7 +2769,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -2819,7 +2797,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:26px;
+            font-size:35px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
@@ -2871,7 +2849,7 @@ setup.stopBGM = function () {
         width:60%;
         padding:24px 30px;
         text-align:center;
-        font-size:24px;
+        font-size:40px;
         line-height:1.9;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.2);
@@ -2896,7 +2874,7 @@ setup.stopBGM = function () {
             border:1px solid rgba(255,255,255,0.3);
             border-radius:10px;
             color:white;
-            font-size:26px;
+            font-size:35px;
             cursor:pointer;
             text-shadow:0 0 6px black;
         &quot;&gt;
