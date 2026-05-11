@@ -394,35 +394,32 @@ html, body {
     }
 }
 
-<script role="script" id="twine-user-script" type="text/twine-javascript">
-
 /* 是否允許 Twine 播放背景音樂 */
 setup.audioEnabled = false;
 
 /* 播放背景音樂 */
 setup.playBGM = function (src) {
-
-    // 如果正在測試外部聲音，就完全禁止播放 BGM
     if (setup.audioEnabled === false) {
-        console.log("Twine BGM 已被停用，沒有播放背景音樂。");
+        console.log("Twine BGM 已被停用。");
         return;
     }
 
-    // 無論如何先停掉舊的
     if (window.bgm) {
         window.bgm.pause();
         window.bgm.currentTime = 0;
         window.bgm = null;
     }
 
-    // 建立新的音樂
     window.bgm = new Audio(src);
     window.bgm.loop = true;
     window.bgm.volume = 0.5;
 
-    const p = window.bgm.play();
+    var p = window.bgm.play();
+
     if (p !== undefined) {
-        p.catch(err => console.log("播放失敗：", err));
+        p.catch(function (err) {
+            console.log("播放失敗：", err);
+        });
     }
 };
 
@@ -431,40 +428,28 @@ setup.stopBGM = function () {
     if (window.bgm) {
         window.bgm.pause();
         window.bgm.currentTime = 0;
-        window.bgm.muted = true;
         window.bgm = null;
     }
 };
 
 /* 強制停止所有 Twine 內部音樂與音效 */
 setup.stopAllAudio = function () {
-
-    // 停止你自己建立的 BGM
     if (window.bgm) {
         window.bgm.pause();
         window.bgm.currentTime = 0;
-        window.bgm.muted = true;
         window.bgm = null;
     }
 
-    // 停止頁面上所有 audio 標籤
-    document.querySelectorAll("audio").forEach(function (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-        audio.muted = true;
-    });
-
-    // 停止頁面上所有 video 聲音
-    document.querySelectorAll("video").forEach(function (video) {
-        video.pause();
-        video.currentTime = 0;
-        video.muted = true;
+    document.querySelectorAll("audio, video").forEach(function (el) {
+        el.pause();
+        el.currentTime = 0;
+        el.muted = true;
     });
 
     console.log("已強制停止 Twine 內所有音訊。");
 };
+  
 
-</script>
 		
 <tw-passagedata pid="1" name="scene1" tags="" position="75,100" size="100,100">&lt;div style=&quot;position: relative; width: 100%; height: 100vh; overflow:hidden; font-family: serif;&quot;&gt;
 
