@@ -400,16 +400,27 @@ html, body {
 
 <script role="script" id="twine-user-script" type="text/twine-javascript">
 setup.playBGM = function () {
-    return;
+    return false;
 };
 
 setup.stopBGM = function () {
-    return;
+    return false;
 };
 
 setup.stopAllAudio = function () {
-    return;
+    return false;
 };
+
+/* 每次換幕時，強制移除網頁內可能存在的 audio / video */
+$(document).on(':passagestart :passagerender :passagedisplay', function () {
+    document.querySelectorAll('audio, video').forEach(function (el) {
+        try {
+            el.pause();
+            el.removeAttribute('src');
+            el.load();
+        } catch (e) {}
+    });
+});
 </script>
 		
 		
